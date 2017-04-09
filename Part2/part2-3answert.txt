@@ -1,0 +1,96 @@
+The instance variable sideLength is the largest distance that the BoxBug can move in one direction. That is to said, the sideLength is the total step number that the BoxBug can move on each side of the world. The sideLength must be equal to the biggest steps.
+
+The instance variable steps is the step number that the BoxBug has already moved forward on each side of the world or we can say it as in one direction. The biggest steps must be equal to the sideLength.
+
+The BoxBug will turn right 45 degrees if we use the turn method once. Therefore, when steps becomes equal to sideLength, the BoxBug has to turn right 90 degrees in order to move as a square pattern, so the turn method need to be called twice.
+
+Because the BoxBug class extends the Bug class, the BoxBug can inherit the move method which has been defined inside the Bug class. It's an inheritance that can call the method from its father class.
+
+Yes, the size of its square pattern is always be the same because the sideLength of each BoxBug is specified when creating an instance of the BoxBug class and will not be changed in running time.
+
+Yes, it can change. When the BoxBug comes across other BoxBug in front of it, it will change its direction and also move as a square pattern.
+
+There are a lot of cases as following.
+At the beginning, the BoxBug doesn't move and the value of steps of it is zero.
+At the running time, when the BoxBug comes across other BoxBug in front of it and it must change its direction, the value of the steps is set to zero again.
+At the running time, when the steps is equal to sideLength, the value of steps must be set to zero again and the BoxBug move in another direction.
+If we create a BoxBug that its sidelength is zero, the BoxBug can't move and the value of steps is zero.
+etc...
+
+We can use the getRow method.  
+`loc1.getRow();`
+
+False. Because loc1 is not equal to loc2.
+
+The location of loc3 is (4,4), which means the row of loc3 is 4, the column of loc3 is also 4.
+
+The value of dir is 135 (degrees).
+
+The **getAdjacentLocation** method has a int parameter "direction"(such as EAST/SOUTH...) which represents 0, 180....  
+The method mods the "direction" by 360 and makes the adjacent location closest to the "direction".
+
+We can use the **getOccupiedAdjacentLocations** method to obtain a count of the objects.  
+We can use the **getEmptyAdjacentLocations** method to obtain a count of the empty locations.
+
+`grid.isValid(new Location(10,10);`  
+We can use isValid method. If the return value is true, location(10,10) is in a grid
+
+The grid has two type, the BoundedGrid and the UnboundedGrid, which has different features.  
+Some of the method of the **Grid** class must be implement in two different ways, so it has the **AbstractGrid** class to implement the **Grid** class.  Then the **BoundedGrid** class and the **UnboundedGrid** inherit the **AbstractGrid** class.  
+Because of that, the implementation of some Grid method will be different in the **BoundedGrid** and the **UnboundedGrid** class.
+Of course, we can find the implemments of these methods in the **BoundedGrid** and the **UnboundedGrid** class.
+
+No.Because the ArrayList can **dynamically increase** but the Array must have **a fixed size**.
+
+Such as Color, Direction, Location.
+
+If it doesn't call the setDirection and setColor method,  
+its direction is **NORTH(0 degree)** and its color is **blue**.
+
+An **interface** has **no data, only abstract methods**. It is unable to use an interface to create an object.  
+An **class** has **data, no abstract method** and it is able to use a class to create an object.  
+We know that Actor has data, defined method and can be created as an object, so the Actor is class.
+
+An actor **can't** put itself into a grid twice without first removing itself.  
+An actor **can't** remove itself from a grid twice.  
+An actor **can** be placed into a grid, remove itself, and then put itself back.
+
+It can call the setDirection method to turn 90 degrees to the right.  
+`actor.setDirection(90);`
+
+It can call the setDirection method to turn 90 degrees to the right.  
+`actor.setDirection(90);`
+
+```
+if (gr == null)
+	return false;
+```
+
+`return (neighbor == null) || (neighbor instanceof Flower);`
+
+1. **isValid** method `boolean isValid(Location loc)`: check whether the adjacent location is valid or not in this grid
+2. **get** method `E get(Location loc)`: get the object at the adjacent location.
+
+**getAdjacentLocation** method `public Location getAdjacentLocation(int direction)`: get the location in front of the Bug's direction.
+
+* **getGrid** method
+* **getLocation** method
+* **getDirection** method
+
+The Bug **removes itself** from the grid when the location immediately in front of the bug is out of the grid.
+
+No, there is no need to do that in this case.  
+Each actor has a private parameter **location** which can be used in the move method directly.
+
+It may call the getColor method to create the object of Flower class.  
+`Flower flower = new Flower(getColor());`
+
+It **will not** place a flower into its previous location, when a bug removes itself from the grid
+
+It may call the putSelfInGrid method.  
+`public void putSelfInGrid(Grid<Actor> gr, Location loc)`
+`flower.putSelfInGrid(gr, loc);`
+
+**Four times.**  
+Because it turns 45 degrees when it calls the turn method one time.
+

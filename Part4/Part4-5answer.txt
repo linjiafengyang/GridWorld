@@ -1,0 +1,96 @@
+act method  
+getActors method  
+processActors method  
+getMoveLocations method  
+selectMoveLocation method  
+makeMove method
+
+ArrayList<Actor> actors = getActors();
+processActors(actors);
+ArrayList<Location> moveLocs = getMoveLocations();
+Location loc = selectMoveLocation(moveLocs);
+makeMove(loc);
+
+Yes.Because overriding the getActors method in subclasses of Critter can get the neighboring actors and process them.
+
+The critter can remove(eat) the actors that are not rocks and not critters from the grid.
+
+getMoveLocations method: Gets a list of possible locations for the next move.  
+selectMoveLocation method: Selects randomly the location for the next move.  
+makeMove method: Moves the critter to the selected location.
+
+Because the Critter class extends the Actor class which has already had a constructor method.  
+It means that the Critter class has a default constructor method that is inherited from the Actor class.
+
+Because the ChameleonCritter class overrides the processActors method and the makeMove method, which are called in the act method.
+
+The ChameleonCritter firstly sets direction to the location, then move to the location.So inside the method, it sets the direction firstly, then calls super.makeMove to move to the location.
+
+hanshu
+
+Because the ChameleonCritter has the same behavior with the Critter in the getActors method and it can inherit this method from the Critter class.
+
+The Actor class.
+
+A Critter can call the getGrid method that inherits from the Actor class to access its own grid.
+
+Because the CrabCritter eats the actors that are not rocks and not critters, which is the same behavior with the Critter. It can inherit this method from the Critter class.
+
+Firstly, a CrabCritter gets the actors in the three locations immediately in front, to the right-front, or to the left-front of it.And then it can move only to the right or to the left at random and eat the actors that are not rocks and not critters.  
+It doesn't always eat all neighboring actors because it can only get three actors at most and move to the right or to the left at random.
+
+The getLocationsInDirections method is used to find the valid adjacent locations of the CrabCritter in different directions.
+
+According to the question, three locations will be returned, which are (4,3),(4,4),(4,5).
+
+Similarities: They can eat the actors that are not rocks and critters; They can move to a new location without changing their direction.
+Differences: The CrabCritter only can get three directions,the front, the front-right and the front-left, while the Critter gets all the eight directions; The CrabCritter only can move to the right or to the left, while the Critter is possible to move all directions.
+
+Inside the makeMove method, if the parameter "loc" is equal to current location(the CrabCritter's location), the CrabCritter will turn.
+
+Because the CrabCritter inherits from the Critter, which doesn't eat actors that are rocks and critters. It means the CrabCritter doesn't eat each other because it is also a critter object.
+
+
+
+The isValid method is specified in the Grid class and the BoundedGrid class and the UnboundedGrid class provide an implementation of it.
+
+The getValidAdjacentLocations method calls the isValid method. Because the other methods call the getValidAdjacentLocations method to get valid locations instead of calling the isValid method directly.
+
+The getOccupiedAdjacentLocations method which is implemented in the abstract class, and the get method which is implemented in the BoundedGrid class and the UnboundedGrid class.
+
+The getEmptyAdjacentLocations method needs to use the get method to judge whether the adjacent location is empty or not.
+
+In this case, the method will only check the ahead, right, left, behind location of the checked location, which means that it will miss checking other locations.
+
+The constructor of the BoundedGrid class will throw an IllegalArgumentException error if the row or the column is less than 0, which means that the grid will always have at least one valid location.
+
+The getNumCols method returns the length of the occupantArray[0]. The assumption that the grid has at least one valid location makes this possible.
+
+The row number must be between 0 and the grid row number and the column number must be between 0 and the grid column number.
+
+ArrayList<Location>. The complexity(Big-Oh) is O(r * c).
+
+A E type is returned and a Location parameter is needed.  
+The complexity(Big-Oh) is O(1).
+
+An IllegalArgumentException will be thrown when the location is invalid. A NullPointerException will be thrown when the object is empty.  
+The complexity(Big-Oh) is O(1).
+
+A E type is returned. Null will be returned if an attempt is made to  remove an item from an empty location.  
+The complexity(Big-Oh) is O(1).
+
+Yes. It uses a two-dimensional array to store the data of the object, which makes the complexity of lots of operations be a low level.
+
+The equal method and the hashCode method.  
+If a TreeMap were used instead, a comparable operation is needed so the compareTo method of the Location is required.  
+Yes. Location satisfies these requirements.
+
+Because it is no need to waste space to store an empty location in the map. In the BoundedGrid, each Location has already been allocated a space for itself, so there are no such checks.
+
+The complexity(Big-Oh) of get, put, and remove methods is O(1).  
+If a TreeMap were used instead of a HashMap, it is O(lnN).
+
+If a TreeMap were used instead of a HashMap, a TreeMap is sorted, which means that comparable operations will become convenient, but the normal operations like get, put, remove operations will have a higher complexity.
+
+Yes, a map implementation can be used for a bounded grid.  
+However, using the two-dimensional array implementation will do better than map implementation in some ways like creating, accesing and deleting(put,get,remove) quickly because it use a fixed space to store the data.

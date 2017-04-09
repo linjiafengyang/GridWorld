@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<project>
+	<description>
+	</description>
+	<property name="srcDir" location="src"/>
+	<property name="destDir" location="dest"/>
+	<target name="init">
+		<mkdir dir="${destDir}"/>
+	</target>
+	<target name="compile" depends="init">
+		<javac srcdir="${srcDir}" destdir="${destDir}" includeantruntime="on"></javac>
+	</target>
+	<target name="run" depends="compile">
+		<java classname="Calculator" classpath="${destDir}" fork="yes"></java>
+	</target>
+	<target name="clean">
+		<delete dir="${destDir}"></delete>
+	</target>
+</project>
